@@ -1,6 +1,6 @@
 import axios from "axios";
 import dotenv from "dotenv";
-import { TwentyDataObject, TwentyDataObjectResponse } from "@/schemas";
+import { FormbricksSurveyResponseSchema, TwentyDataObject, TwentyDataObjectResponseSchema } from "@/schemas";
 
 dotenv.config();
 
@@ -14,7 +14,9 @@ const setupFormbricksSyncProperties = async () => {
         "x-api-key": `${process.env.FORMBRICKS_API_TOKEN}`,
       },
     });
-    console.log("⚡ ~ surveyFieldData:", surveyFieldData.data)
+
+    FormbricksSurveyResponseSchema.parse(surveyFieldData.data);
+
   } catch (e) {
     console.error("Error:", e);
     throw e;
@@ -28,7 +30,7 @@ const setupFormbricksSyncProperties = async () => {
       },
     });
 
-    TwentyDataObjectResponse.parse(twentyDataObjects.data);
+    TwentyDataObjectResponseSchema.parse(twentyDataObjects.data);
 
     const nonSystemObjects = twentyDataObjects.data.data.objects
       .filter((object: TwentyDataObject) => !object.isSystem)

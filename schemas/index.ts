@@ -1,2 +1,2 @@
-export { TwentyDataObject, TwentyObjectField, TwentyDataObjectResponse } from "./TwentyDataObjects.schema";
-export { }  from "./TwentyDataObjects.schema";
+export { TwentyDataObject, TwentyObjectField, TwentyDataObjectResponseSchema } from "./TwentyDataObjects.schema";
+export { FormbricksSurveyResponseSchema } from "./FormbricksSurveyQuestions.schema";

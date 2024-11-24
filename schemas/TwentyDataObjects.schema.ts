@@ -7,53 +7,29 @@ export const TwentyFieldMetadataSchema = z.object({
   type: FieldTypeEnum,
   name: z.string(),
   label: z.string(),
-  description: z.string().nullable(),
-  icon: z.string().nullable(),
-  defaultValue: z.any(),
-  isNullable: z.boolean(),
-  settings: z.record(z.any()).optional(),
-  options: z.array(z.record(z.any())).nullable(),
   isCustom: z.boolean(),
   isActive: z.boolean(),
   isSystem: z.boolean(),
-  createdAt: z.string().datetime(),
-  updatedAt: z.string().datetime(),
-  fromRelationMetadata: z.record(z.any()).nullable(),
-  toRelationMetadata: z.record(z.any()).nullable(),
-});
+}).passthrough();
 
 export const TwentyObjectSchema = z.object({
   id: z.string().uuid(),
-  dataSourceId: z.string().uuid(),
   nameSingular: z.string(),
   namePlural: z.string(),
   labelSingular: z.string(),
   labelPlural: z.string(),
-  description: z.string(),
   icon: z.string(),
   isCustom: z.boolean(),
   isActive: z.boolean(),
   isSystem: z.boolean(),
-  createdAt: z.string().datetime(),
-  updatedAt: z.string().datetime(),
-  labelIdentifierFieldMetadataId: z.string().uuid(),
-  imageIdentifierFieldMetadataId: z.string().uuid().nullable(),
   fields: z.array(TwentyFieldMetadataSchema),
-});
+}).passthrough();
 
-const TwentyObjectPageInfoSchema = z.object({
-  hasNextPage: z.boolean(),
-  startCursor: z.string(),
-  endCursor: z.string(),
-});
-
-export const TwentyDataObjectResponse = z.object({
+export const TwentyDataObjectResponseSchema = z.object({
   data: z.object({
     objects: z.array(TwentyObjectSchema),
   }),
-  pageInfo: TwentyObjectPageInfoSchema,
-});
+}).passthrough();
 
 export type TwentyDataObject = z.infer<typeof TwentyObjectSchema>;
 export type TwentyObjectField = z.infer<typeof TwentyFieldMetadataSchema>;
-
