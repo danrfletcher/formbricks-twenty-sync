@@ -1,0 +1,35 @@
+{
+  "name": "frombricks-sync",
+  "version": "1.0.0",
+  "description": "api function to retrieve survey responses from formbricks and pass them into twenty CRM",
+  "main": "index.ts",
+  "tpye": "module",
+  "scripts": {
+    "sync": "tsx index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danrfletcher/formbricks-twenty-sync.git"
+  },
+  "keywords": [
+    "formbricks",
+    "twenty"
+  ],
+  "author": "danrfletcher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danrfletcher/formbricks-twenty-sync/issues"
+  },
+  "homepage": "https://github.com/danrfletcher/formbricks-twenty-sync#readme",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8",
+    "zod-validation-error": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
