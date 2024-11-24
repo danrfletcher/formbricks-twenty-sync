@@ -1,0 +1,1 @@
+export const findManyObjects = `https://twenty.stalotto.com/rest/metadata/objects`;

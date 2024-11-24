@@ -5,7 +5,8 @@
   "main": "index.ts",
   "tpye": "module",
   "scripts": {
-    "sync": "tsx index.ts"
+    "sync": "tsx index.ts",
+    "exec": "tsx"
   },
   "repository": {
     "type": "git",
